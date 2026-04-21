@@ -1,19 +1,20 @@
-
+// Code your testbench here
+// or browse Examples
 `timescale 1ns/1ps
 module tb_sync_ram;
 
-   
+    // Parameters
     parameter DATA_WIDTH = 8;
     parameter ADDR_WIDTH = 4;
 
-   
+    // Testbench signals
     reg clk;
     reg we;
     reg [ADDR_WIDTH-1:0] addr;
     reg [DATA_WIDTH-1:0] din;
     wire [DATA_WIDTH-1:0] dout;
 
-   
+    // Instantiate the RAM
     sync_ram #(
         .DATA_WIDTH(DATA_WIDTH),
         .ADDR_WIDTH(ADDR_WIDTH)
@@ -25,10 +26,10 @@ module tb_sync_ram;
         .dout(dout)
     );
 
-   
+    // Clock generation: 10ns period
     always #5 clk = ~clk;
 
-   
+    // Test sequence
     initial begin
         $display("=== Synchronous RAM Test Start ===");
         clk = 0;
@@ -36,7 +37,7 @@ module tb_sync_ram;
         addr = 0;
         din = 0;
 
-      
+        // Write values to RAM
         #10;
         we = 1;
         addr = 4'h0; din = 8'hAA; #10;
@@ -44,10 +45,10 @@ module tb_sync_ram;
         addr = 4'h2; din = 8'hCC; #10;
         addr = 4'h3; din = 8'hDD; #10;
 
-      
+        // Stop writing
         we = 0;
 
-       
+        // Read back values
         addr = 4'h0; #10; $display("Read Addr 0: %h", dout);
         addr = 4'h1; #10; $display("Read Addr 1: %h", dout);
         addr = 4'h2; #10; $display("Read Addr 2: %h", dout);
