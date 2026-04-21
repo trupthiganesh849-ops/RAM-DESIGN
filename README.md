@@ -15,3 +15,6 @@ To verify the functionality of the RAM, a testbench is developed. The testbench 
 The simulation results show that the data read from each address matches the data that was previously written. For example, the output displays “Read Addr 0: aa”, “Read Addr 1: bb”, “Read Addr 2: cc”, and “Read Addr 3: dd”. This confirms that both write and read operations are functioning correctly, and the RAM behaves as expected.
 The design and simulation were carried out using EDA Playground, which is an online platform for writing and testing hardware description language (HDL) code such as Verilog and SystemVerilog. The simulation tool used within EDA Playground is Icarus Verilog, which compiles and executes the code. The platform also supports waveform viewing using EPWave, which helps in analyzing signal transitions over time.
 In conclusion, the synchronous RAM module has been successfully designed, tested, and verified. The use of a clock signal ensures reliable operation, and the parameterized design makes it adaptable for different memory sizes. The correct simulation output demonstrates that the RAM performs accurate read and write operations, making it a fundamental building block for more complex digital systems.
+
+# Output
+<img width="1240" height="475" alt="Image" src="https://github.com/user-attachments/assets/e3d56127-5657-4c8a-98c3-7e4bcd0d5830" />
